@@ -2,10 +2,12 @@ language: node_js
 install: true
 script: true
 after_success:
-- ls -l 
 - scp -i "se234.pem" -r html/* ubuntu@54.213.117.250:/var/www/html/
 env:
   global:
     secure: q/tzkK5+MZIGLYi6S+U8TU5LBoIUHmjIH59rckFbytsNIlkRFB1ugeJy26KeI5De6ayHUYELoeCV3Pfo+TtfTl3zBPz45+tOLlVC0akSELr8iId6P/o1svj13jvgByrmGqLzq4I8ivrXKWcMDZpDIK78wymPb4QH8FGpAYUmsGCtMAdQqcyOy/sGAr9jUhloEixeFcLUlGmWI838rVuJWwZ9QEoAMioN09sYOaeypViYeR0ksWob10Bs4A1F7io6dMTvXBTAbnsAVE0c+NLVj9l1Eo5LhzTNZsPO8nfOL7RucNiC2JcoYXovXqIwIhfQUIL+au8WWFyGdcYMYOhSwK/+7bWimjLwRBGEoyq7Mg/u6ECx4l3HX1erddU7taA1jNPfHyRR4e5enb9y8Ut8K1uJfPWSt0F04OVlSTgZd8nYnBzuGwWL7qhowGHrvYPI6aZXISVxMbbLgqPYQEVyPNwCI3GAAKkVgKhXOl5ZGdcIPvGYqhpNCIHGzxZyB1ePOPhpDiDV59XsVa7PfCe0oYQtFmFKgjov2rwaleeAnevCCwVivG1LuvBgtRRPqFw07yta56ISZetNBVi5BvSMVtZf3O/jveWAqh6y0IUCRaQHFdfjO+Q03PRldQIjUj1LqFS8x7Z1Yo+tsGFMXXDsVIDvgBDtxODTpikeMRCPpDA=
 before_install:
 - openssl aes-256-cbc -k "$super_secret_password" -in se234.pem.enc -out se234.pem -d
+addons:
+ssh_known_hosts:
+- 54.213.117.250
