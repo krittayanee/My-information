@@ -2,7 +2,7 @@ language: node_js
 install: true
 script: true
 after_success:
-- ls -l
+- ls -l 
 - scp -i "se234.pem" -r html/* ubuntu@54.213.117.250:/var/www/html/
 env:
   global:
